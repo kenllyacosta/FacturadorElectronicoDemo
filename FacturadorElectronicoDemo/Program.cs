@@ -34,7 +34,7 @@ namespace FacturadorElectronicoDemo
 
             try
             {
-                FacturaElectronica facturaElectronica = new FacturaElectronica(detalles.ToArray(), ncf, "31-12-2025", "01", rncEmisor, "TU RAZON SOCIAL", "TU DIRECCION", fechaEmision, rncComprador, "NOMBRE DEL CLIENTE", 1, 1, "010100", "010100", "010000", "010000");
+                FacturaElectronica facturaElectronica = new FacturaElectronica(detalles.ToArray(), ncf, "31-12-2025", TipoDeIngresos.Ingresos_por_operaciones_No_financieros, rncEmisor, "TU RAZON SOCIAL", "TU DIRECCION", fechaEmision, rncComprador, "NOMBRE DEL CLIENTE", TipoDePago.Contado, IndicadorMontoGravado.Con_ITBIS_INCLUIDO, ProvinciaMunicipio.MUNICIPIO_SANTO_DOMINGO_DE_GUZMAN_010100, ProvinciaMunicipio.MUNICIPIO_SANTO_DOMINGO_DE_GUZMAN_010100, ProvinciaMunicipio.DISTRITO_NACIONAL_010000, ProvinciaMunicipio.DISTRITO_NACIONAL_010000);
 
                 _ = SubirCertificado();
                 _ = EnviarFactura(facturaElectronica);
