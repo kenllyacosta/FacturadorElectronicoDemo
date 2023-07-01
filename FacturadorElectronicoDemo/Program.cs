@@ -31,18 +31,26 @@ namespace FacturadorElectronicoDemo
                 new Detalle(1, 100, "Producto test 1", "11", 10),
                 new Detalle(1, 200, "Producto test 2", "12", 10)
             };
-            FacturaElectronica facturaElectronica = new FacturaElectronica(detalles.ToArray(), ncf, "31-12-2025", "01", rncEmisor, "TU RAZON SOCIAL", "TU DIRECCION", fechaEmision, rncComprador, "NOMBRE DEL CLIENTE", 1, 1, "010100", "010100", "010000", "010000");
 
-            _ = SubirCertificado();
-            _ = EnviarFactura(facturaElectronica);
-            _ = ConsultarTrackId(rncEmisor, ncf);
-            _ = ConsultarEstatus("954e3d5c-1cc8-4726-84a7-3ceec1599a2b");
-            _ = ConsultarTimbre(fechaEmision, rncEmisor, ncf);
+            try
+            {
+                FacturaElectronica facturaElectronica = new FacturaElectronica(detalles.ToArray(), ncf, "31-12-2025", "01", rncEmisor, "TU RAZON SOCIAL", "TU DIRECCION", fechaEmision, rncComprador, "NOMBRE DEL CLIENTE", 1, 1, "010100", "010100", "010000", "010000");
 
-            _ = EnviarFacturaAComprador(facturaElectronica, uRlAutenticacion, uRlRecepcion);
-            _ = NCFRecibidos(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
-            _ = EnviarAprobacionComercialAComprador(uRlAprobacionComercial, uRlAutenticacion, rncEmisor, rncComprador, ncf, fechaEmision, 3000.01m, true, "Hemos aprobado el comprobante.");
-            _ = AprobacionesComerciales(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
+                _ = SubirCertificado();
+                _ = EnviarFactura(facturaElectronica);
+                _ = ConsultarTrackId(rncEmisor, ncf);
+                _ = ConsultarEstatus("954e3d5c-1cc8-4726-84a7-3ceec1599a2b");
+                _ = ConsultarTimbre(fechaEmision, rncEmisor, ncf);
+
+                _ = EnviarFacturaAComprador(facturaElectronica, uRlAutenticacion, uRlRecepcion);
+                _ = NCFRecibidos(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
+                _ = EnviarAprobacionComercialAComprador(uRlAprobacionComercial, uRlAutenticacion, rncEmisor, rncComprador, ncf, fechaEmision, 3000.01m, true, "Hemos aprobado el comprobante.");
+                _ = AprobacionesComerciales(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
 
             //Al conluir el uso del componente, eliminamos la suscripción al evento.
             documentosElectronicos.Excepcion -= DocumentosElectronicos_Excepcion;
