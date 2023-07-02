@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.33808.371
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacturadorElectronicoDemo", "FacturadorElectronicoDemo\FacturadorElectronicoDemo.csproj", "{DAF1B135-0B6C-4698-901B-2E2EE71FD7D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacturadorElectronicoDemoCore", "FacturadorElectronicoDemoCore\FacturadorElectronicoDemoCore.csproj", "{1832E369-FC05-470F-AF53-B787849D3491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DAF1B135-0B6C-4698-901B-2E2EE71FD7D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAF1B135-0B6C-4698-901B-2E2EE71FD7D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAF1B135-0B6C-4698-901B-2E2EE71FD7D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1832E369-FC05-470F-AF53-B787849D3491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1832E369-FC05-470F-AF53-B787849D3491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1832E369-FC05-470F-AF53-B787849D3491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1832E369-FC05-470F-AF53-B787849D3491}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
