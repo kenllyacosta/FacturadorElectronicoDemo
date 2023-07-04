@@ -7,7 +7,6 @@ namespace FacturadorElectronicoDemoCore
     {
         private static readonly string usuario = "NombreDeUsuario";
         private static readonly string clave = "ClaveSecreta";
-        private static readonly string url = "https://api.aslan.com.do/TesteCF/";
         private static readonly string uRlAutenticacion = "https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/Autenticacion";
         private static readonly string uRlRecepcion = "https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/Recepcion/api/ecf";
         private static readonly string uRlAprobacionComercial = "https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/AprobacionComercial/api/ecf";
@@ -18,7 +17,7 @@ namespace FacturadorElectronicoDemoCore
         private static DocumentosElectronicos? documentosElectronicos;
         static void Main(string[] args)
         {
-            documentosElectronicos = new DocumentosElectronicos(usuario, clave, url);
+            documentosElectronicos = new DocumentosElectronicos(usuario, clave, Ambientes.TesteCF);
 
             //Para el manejo de las excepciones, nos suscribimos en el evento `Excepcion` para capturar los errores de forma centralizada.
             documentosElectronicos.Excepcion += DocumentosElectronicos_Excepcion;

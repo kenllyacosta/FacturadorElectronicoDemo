@@ -21,7 +21,7 @@ namespace FacturadorElectronicoDemo
         private static DocumentosElectronicos documentosElectronicos;
         static void Main(string[] args)
         {
-            documentosElectronicos = new DocumentosElectronicos(usuario, clave, url);
+            documentosElectronicos = new DocumentosElectronicos(usuario, clave, Ambientes.TesteCF);
 
             //Para el manejo de las excepciones, nos suscribimos en el evento `Excepcion` para capturar los errores de forma centralizada.
             documentosElectronicos.Excepcion += DocumentosElectronicos_Excepcion;

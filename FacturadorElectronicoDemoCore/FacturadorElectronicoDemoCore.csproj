@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DGIIFacturaElectronica" Version="1.0.2" />
+    <PackageReference Include="DGIIFacturaElectronica" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
