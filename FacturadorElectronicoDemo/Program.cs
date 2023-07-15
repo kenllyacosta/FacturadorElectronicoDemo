@@ -2,6 +2,8 @@
 using DGIIFacturaElectronica.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace FacturadorElectronicoDemo
@@ -46,6 +48,10 @@ namespace FacturadorElectronicoDemo
                 _ = NCFRecibidos(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
                 _ = EnviarAprobacionComercialAComprador(uRlAprobacionComercial, uRlAutenticacion, rncEmisor, rncComprador, ncf, fechaEmision, 3000.01m, true, "Hemos aprobado el comprobante.");
                 _ = AprobacionesComerciales(new DateTime(2023, 1, 1), new DateTime(2023, 12, 31));
+
+                _ = InformacionDeCertificado();
+                _ = InformacionDelToken();
+                _ = ConsultarDirectorio();
             }
             catch (Exception ex)
             {
@@ -57,6 +63,25 @@ namespace FacturadorElectronicoDemo
 
             Console.WriteLine("Listo!");
             Console.ReadLine();
+        }
+
+        private static async Task<Directorio> ConsultarDirectorio()
+        {
+            Directorio Resultado = await documentosElectronicos.ConsultaDirectorio("999999999");
+
+            return Resultado;
+        }
+        private static async Task<Token> InformacionDelToken()
+        {
+            Token Resultado = await documentosElectronicos.InformacionDelToken();
+
+            return Resultado;
+        }
+        private static async Task<CertInfo> InformacionDeCertificado()
+        {
+            CertInfo Resultado = await documentosElectronicos.InformacionDeCertificado();
+
+            return Resultado;
         }
 
         private static void DocumentosElectronicos_Excepcion(object sender, ExceptionEventArgs e)
