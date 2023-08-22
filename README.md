@@ -12,14 +12,14 @@ estos pasos son necesarios para obtener las URL's disponibles como son:
 1. Autenticación con DGII https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/Autenticacion
 2. Recepción de comprobantes https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/Recepcion/api/ecf
 3. Aprobación comercial https://api.aslan.com.do/ecf/TU_RNC_SIN_ESPACIOS_NI_GUIONES/fe/AprobacionComercial/api/ecf
-*Debes sustituir 'TU_RNC_SIN_ESPACIOS_NI_GUIONES por tu RNC o cédula y configurarlo también en el sistema Menú Inicio/Empresa* [Aquí](https://app.aslan.com.do/empresa)
+*Debes sustituir 'TU_RNC_SIN_ESPACIOS_NI_GUIONES por tu RNC o cédula.
 - [Obtener certificado digital (Viafirma)](https://www.viafirma.do/).
 - [Crear nuevo usuario](https://app.aslan.com.do/login/register?promocode=nuget).
 ## ¿Cómo uso la librería?
 Luego de instalar el paquete en un proyecto .NET pasamos a comentarte que esta librería se compone de varios métodos que usaremos para consumir los servicios de facturación Electrónica, estos métodos son:
 - **UploadCertificate**
-    - Este método recibe dos parámetros de cadena de texto, uno es la ruta física de tu certificado, y el otro es la clave de tu certificado digital, lo usaremos para cargar el certificado la primera vez unicamente.
-      Este método se encarga de subir el certificado necesario para realizar las operaciones. Asegúrate de validar y verificar el certificado antes de continuar con las siguientes operaciones.
+    - Este metodo recibe tres parametros de cadena de texto, uno es la ruta fisica de tu certificado, el otro es la clave de tu certificado digital, y tambien tu rnc o cedula que DGII ha autorizado a emitir comprobantes. Esta informacion la usaremos para cargar el certificado la primera vez unicamente.
+      Este metodo se encarga de subir el certificado necesario para realizar las operaciones. Asegurate de validar y verificar el certificado antes de continuar con las siguientes operaciones.
 - **EnviarFactura**
     - Con este método enviaremos las facturas a DGII, recibe un parámetro de la factura en cuestión a enviar.
       Esta función envía una factura a través del servicio. Utiliza la objeto `FacturaElectronica` que contiene la factura a enviar.       
