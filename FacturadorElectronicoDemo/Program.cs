@@ -52,6 +52,7 @@ namespace FacturadorElectronicoDemo
                 _ = InformacionDeCertificado();
                 _ = InformacionDelToken();
                 _ = ConsultarDirectorio();
+                _ = DescargaXMLFirmado(rncEmisor, ncf);
             }
             catch (Exception ex)
             {
@@ -63,6 +64,12 @@ namespace FacturadorElectronicoDemo
 
             Console.WriteLine("Listo!");
             Console.ReadLine();
+        }
+
+        private static async Task<string> DescargaXMLFirmado(string rnc, string eNcf)
+        {
+            var resultado = await documentosElectronicos.DescargaXMLFirmado(rnc, eNcf);
+            return resultado;
         }
 
         private static async Task<Directorio> ConsultarDirectorio()
@@ -91,7 +98,7 @@ namespace FacturadorElectronicoDemo
 
         private static async Task<string> SubirCertificado()
         {
-            string resultado = await documentosElectronicos.UploadCertificate("RUTA COMPLETA DE TU CERTIFICADO DIGITAL", "CLAVE DEL CERTIFICADO");
+            string resultado = await documentosElectronicos.UploadCertificate("RUTA COMPLETA DE TU CERTIFICADO DIGITAL", "CLAVE DEL CERTIFICADO", "TU_RNC_SIN_ESPACIOS_NI_GUIONES");
 
             Console.WriteLine(resultado);
             return resultado;
