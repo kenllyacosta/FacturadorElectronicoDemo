@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Image_Icon.png" />
+    <Content Include="ProvinciaMunicipio.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
